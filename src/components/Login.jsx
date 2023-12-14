@@ -1,6 +1,6 @@
 import Nav from './Nav';
 // import Footer from './Footer';
-import '../App.css'
+import '../assets/css/App.css'
 import { UserContext } from "../context/UserProvider";
 import { useContext, useRef, useState } from 'react';
 
@@ -31,7 +31,7 @@ const Login = () =>{
     }
     
     return(
-        <>
+        <div className='all'>
             <Nav />
             <div className="formulaire">
                 <form action="/login" method='GET'>
@@ -63,7 +63,7 @@ const Login = () =>{
                 </form>
             </div>
             {/* <Footer /> */}
-        </>
+        </div>
     );
 };
 

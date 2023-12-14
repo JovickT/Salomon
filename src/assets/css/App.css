@@ -60,6 +60,7 @@ fieldset{
     max-width: 30%;
     border: thick double blue;
     padding: 25px;
+    background-color: rgb(255, 255, 255);
 }
 
 legend{
@@ -82,5 +83,14 @@ legend{
 .from-submit{
     position: relative;
     left: 40%;
+}
+
+.all {
+    background-image: url('../img/Arcade.png');
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center;
+    height:100%;
+    color : white;
 }
 

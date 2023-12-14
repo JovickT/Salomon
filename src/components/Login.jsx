@@ -1,4 +1,3 @@
-import Nav from './Nav';
 // import Footer from './Footer';
 import '../assets/css/home.css'
 
@@ -33,7 +32,6 @@ const Login = () =>{
     
     return(
         <div className='all'>
-            <Nav />
             <div className="formulaire">
                 <form action="/login" method='GET' >
                 <fieldset>

@@ -1,6 +1,5 @@
 import Nav from "./Nav";
 // import Footer from "./Footer";
-import { UserContext } from "../context/UserProvider";
 import { useContext, useState } from 'react';
 
 const CreateAccount = () =>{

@@ -6,14 +6,14 @@
     height:100%;
     color : white;
 }
-  
+
 a {
     font-weight: 500;
-    color: rgb(255, 255, 255);
+    color: rgb(120, 120, 228);
     text-decoration: inherit;
 }
 a:hover {
-    color: #535bf2;
+    color: rgb(33, 33, 173);
 } 
 
 .formulaire{
@@ -37,16 +37,17 @@ a:hover {
 
 fieldset{
     max-width: 30%;
-    border: thick double blue;
+    border: 4mm ridge rgba(211, 220, 50, .6);
+    border-radius: 50% 20% / 10% 40%;
     padding: 25px;
-    background-color: rgb(255, 255, 255);
+    background-color:beige;
 }
 
 legend{
     font-size: 27px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
-    color: blue;
+    color: rgb(120, 120, 228);
 }
 
 .sign-in{
@@ -56,7 +57,7 @@ legend{
 }
 
 .sign-in:hover{
-    color: rgb(73, 73, 225);
+    color: rgb(33, 33, 173);
 }
 
 .from-submit{

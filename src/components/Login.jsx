@@ -1,6 +1,6 @@
 import Nav from './Nav';
 // import Footer from './Footer';
-import '../assets/css/App.css'
+import '../assets/css/home.css'
 import { UserContext } from "../context/UserProvider";
 import { useContext, useRef, useState } from 'react';
 
@@ -32,7 +32,6 @@ const Login = () =>{
     
     return(
         <div className='all'>
-            <Nav />
             <div className="formulaire">
                 <form action="/login" method='GET'>
                 <fieldset>

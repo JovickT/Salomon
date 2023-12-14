@@ -13,7 +13,6 @@ const Nav = () => {
                 <a href='/'>home</a>
                 <a href='/experience'>experience</a>
                 <a href='/login'>login</a>
-                {/* <p> {user.firstname != ""? fullName : ""}</p> <i class="fa fa-user" aria-hidden="true"></i> */}
                
                 {/* <a href='education.html'>education</a>
                  <a href='skills.html'>skills</a>

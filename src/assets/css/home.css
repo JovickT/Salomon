@@ -1,10 +1,10 @@
-.all {
-    background-image: url('../img/Arcade.png');
-    background-repeat: no-repeat;
+body {
+    margin: 0;
+    padding: 0;
+    background: url('../img/Arcade.png');
     background-size: cover; 
-    background-position: center;
-    height:100%;
-    color : white;
+    height: 100vh;
+    overflow: hidden;
 }
 
 a {
@@ -17,6 +17,7 @@ a:hover {
 } 
 
 .formulaire{
+    margin-top: 5%;
     position: relative;
     padding: 100px;
     left: 32%;

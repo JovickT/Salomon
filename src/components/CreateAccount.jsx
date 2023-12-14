@@ -1,6 +1,6 @@
+import { UserContext } from "../context/UserProvider";
 import Nav from "./Nav";
 // import Footer from "./Footer";
-import { UserContext } from "../context/UserProvider";
 import { useContext, useState } from 'react';
 
 const CreateAccount = () =>{
@@ -9,7 +9,7 @@ const CreateAccount = () =>{
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [verifyPassword, setVerifyPassword] = useState('');
-    // const { user, setUser } = useContext(UserContext);
+    const { user, setUser } = useContext(UserContext);
     const handleSubmit = (e) =>{
         e.preventDefault();
   
@@ -33,43 +33,43 @@ const CreateAccount = () =>{
 
         <>
         <Nav />
-        <div class="formulaire">
-            <form action="/" method='GET' onSubmit={handleSubmit}>
+        <div className="formulaire">
+            <form action="/login" method='GET' onSubmit={handleSubmit}>
             <fieldset>
                 <legend>Create Account</legend>
-                <div class="form-group form-email">
-                    <label for="exampleInputText" className='form-text'>Firstame</label>
-                    <input type="text" class="form-control input-email" id="exampleInputText" placeholder="Jones"
+                <div className="form-group form-email">
+                    <label htmlFor="exampleInputText" className='form-text'>Firstame</label>
+                    <input type="text" className="form-control input-email" id="exampleInputText" placeholder="Jones"
                     value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)} required readonly />
+                    onChange={(e) => setFirstName(e.target.value)} required />
                 </div>
-                <div class="form-group form-email">
-                    <label for="exampleInputText1" className='form-text'>Lastname</label>
-                    <input type="text" class="form-control input-email" id="exampleInputText1" placeholder="John" 
+                <div className="form-group form-email">
+                    <label htmlFor="exampleInputText1" className='form-text'>Lastname</label>
+                    <input type="text" className="form-control input-email" id="exampleInputText1" placeholder="John" 
                     value={lastName}
-                    onChange={(e) => setLastName(e.target.value)} required readonly />
+                    onChange={(e) => setLastName(e.target.value)} required />
                 </div>
-                <div class="form-group form-email">
-                    <label for="exampleInputEmail1" className='form-text'>Email address</label>
-                    <input type="email" class="form-control input-email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" 
+                <div className="form-group form-email">
+                    <label htmlFor="exampleInputEmail1" className='form-text'>Email address</label>
+                    <input type="email" className="form-control input-email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" 
                      value={email}
-                     onChange={(e) => setEmail(e.target.value)} required readonly />
-                    <small id="emailHelp" class="form-text text-muted form-text">We'll never share your email with anyone else.</small>
+                     onChange={(e) => setEmail(e.target.value)} required />
+                    <small id="emailHelp" className="form-text text-muted form-text">We'll never share your email with anyone else.</small>
                 </div>
-                <div class="form-group form-password">
-                    <label for="exampleInputPassword1" className='form-text'>Password</label>
-                    <input type="password" class="form-control input-password" id="exampleInputPassword1" placeholder="Password" 
+                <div className="form-group form-password">
+                    <label htmlFor="exampleInputPassword1" className='form-text'>Password</label>
+                    <input type="password" className="form-control input-password" id="exampleInputPassword1" placeholder="Password" 
                      value={password}
-                     onChange={(e) => setPassword(e.target.value)} required readonly />
+                     onChange={(e) => setPassword(e.target.value)} required />
                 </div>
-                <div class="form-group form-password">
-                    <label for="exampleInputPassword2" className='form-text'>Verification password</label>
-                    <input type="password" class="form-control input-password" id="exampleInputPassword2" placeholder="Verification password" 
+                <div className="form-group form-password">
+                    <label htmlFor="exampleInputPassword2" className='form-text'>Verification password</label>
+                    <input type="password" className="form-control input-password" id="exampleInputPassword2" placeholder="Verification password" 
                      value={verifyPassword}
-                     onChange={(e) => setVerifyPassword(e.target.value)} required readonly />
+                     onChange={(e) => setVerifyPassword(e.target.value)} required />
                 </div>
                 <div className='from-submit'>
-                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                    <button type="submit" className="btn btn-primary">Envoyer</button>
                 </div>
                 <div className='text-center sign-in'>
                     <a href="/login">Se connecter !</a>

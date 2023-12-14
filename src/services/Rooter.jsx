@@ -1,8 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from '../components/HomePage';
-import ExperiencePage from '../components/ExperiencePage';
-import '../index.css'
 import { UserProvider } from '../context/UserProvider';
 import Login from '../components/Login';
 import CreateAccount from '../components/CreateAccount';

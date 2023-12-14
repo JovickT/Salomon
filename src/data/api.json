@@ -1,0 +1,60 @@
+{
+   "data":{
+        "about":[
+            
+                {
+                    "Nom": "about-item about-item-skills",
+                    "Lien": "skills.html",
+                    "Titre": "I got mad Skills",
+                    "Legende": "What they are?"
+                },
+            
+                {
+                    "Nom":"about-item about-item-social",
+                    "Lien":"contact.html",
+                    "Titre":"I am social",
+                    "Legende":"Connect with me"
+                },
+            
+                {
+                    "Nom":"about-item about-item-live",
+                    "Lien":"contact.html",
+                    "Titre":"contact.html",
+                    "Legende":"Where to find me"
+                }
+            
+            
+        ],
+        "experiences":[
+            {
+                    "dateDebut":"Present - 2012 /",
+                    "moisDebut":"Jan",
+                    "dateFin":"",
+                    "moisFin":"",
+                    "NomSociete":"Google Play",
+                    "intitule":"Marketing Director",
+                    "description":"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam quam assumenda nemo itaque omnis. A natus, cum id vel repellendus, ut rerum, accusamus quisquam numquam ex incidunt doloremque doloribus excepturi.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero dolorem repellat deleniti sit dicta repellendus perferendis voluptatem cumque. Odit ab, maiores culpa mollitia soluta ratione consequuntur sint beatae omnis nemo?"
+                },
+                {
+                    "dateDebut":"2011 / ",
+                    "moisDebut":"Jun",
+                    "dateFin":" - 2008 /",
+                    "moisFin":"Apr",
+                    "NomSociete":"Struck Interactive LLC",
+                    "intitule":"Junior Graphic Designer",
+                    "description":"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam quam assumenda nemo itaque omnis. A natus, cum id vel repellendus, ut rerum, accusamus quisquam numquam ex incidunt doloremque doloribus excepturi."
+                },
+                {
+                    "dateDebut":"2008 / ",
+                    "moisDebut":"Apr",
+                    "dateFin":" - 2004 / ",
+                    "moisFin":"Dec",
+                    "NomSociete":"Apple Computers Inc.",
+                    "intitule":"Creative Director",
+                    "description":"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam quam assumenda nemo itaque omnis. A natus, cum id vel repellendus, ut rerum, accusamus quisquam numquam ex incidunt doloremque doloribus excepturi."
+                
+            
+            }
+        ]
+   }
+}

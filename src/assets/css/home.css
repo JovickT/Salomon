@@ -1,0 +1,65 @@
+.all {
+    background-image: url('../img/Arcade.png');
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center;
+    height:100%;
+    color : white;
+}
+  
+a {
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    text-decoration: inherit;
+}
+a:hover {
+    color: #535bf2;
+} 
+
+.formulaire{
+    position: relative;
+    padding: 100px;
+    left: 32%;
+    top: 25%;
+}
+
+.form-email{
+    margin-bottom: 15px
+}
+
+.form-password{
+    margin-bottom: 20px
+}
+
+.form-text{
+    margin: 10px 10px;
+}
+
+fieldset{
+    max-width: 30%;
+    border: thick double blue;
+    padding: 25px;
+    background-color: rgb(255, 255, 255);
+}
+
+legend{
+    font-size: 27px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    color: blue;
+}
+
+.sign-in{
+    margin-top: 15px;
+    text-decoration: underline;
+    color: rgb(120, 120, 228);
+}
+
+.sign-in:hover{
+    color: rgb(73, 73, 225);
+}
+
+.from-submit{
+    position: relative;
+    left: 40%;
+}

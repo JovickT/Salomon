@@ -1,6 +1,7 @@
 import Nav from './Nav';
 // import Footer from './Footer';
-import '../App.css'
+import '../assets/css/home.css'
+
 // import { UserContext } from "../context/UserProvider";
 import { useContext, useState, useRef } from 'react';
 
@@ -31,10 +32,10 @@ const Login = () =>{
     }
     
     return(
-        <>
+        <div className='all'>
             <Nav />
-            <div class="formulaire">
-                <form action="/login" method='GET'>
+            <div className="formulaire">
+                <form action="/login" method='GET' >
                 <fieldset>
                     <legend>Login in</legend>
                     <div class="form-group form-email">
@@ -42,7 +43,6 @@ const Login = () =>{
                         <input type="email" class="form-control input-email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" 
                         value={email}
                         onChange={(e) => setEmail(e.target.value)} required readonly />
-                        <small id="emailHelp" class="form-text text-muted form-text">We'll never share your email with anyone else.</small>
                     </div>
                     <div class="form-group form-password">
                         <label for="exampleInputPassword1" className='form-text'>Password</label>
@@ -63,7 +63,7 @@ const Login = () =>{
                 </form>
             </div>
             {/* <Footer /> */}
-        </>
+        </div>
     );
 };
 

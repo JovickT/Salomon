@@ -1,4 +1,4 @@
-import './App.css'
+import './assets/css/App.css'
 import HomePage from './components/HomePage'
 import Rooter from './services/Rooter';
 

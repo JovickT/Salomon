@@ -1,6 +1,7 @@
+import { UserContext } from "../context/UserProvider";
 import Nav from "./Nav";
 // import Footer from "./Footer";
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 
 const CreateAccount = () =>{
     const [firstName, setFirstName] = useState('');
@@ -8,7 +9,7 @@ const CreateAccount = () =>{
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [verifyPassword, setVerifyPassword] = useState('');
-    // const { user, setUser } = useContext(UserContext);
+    const { user, setUser } = useContext(UserContext);
     const handleSubmit = (e) =>{
         e.preventDefault();
   
@@ -33,7 +34,7 @@ const CreateAccount = () =>{
         <>
         <Nav />
         <div className="formulaire">
-            <form action="/" method='GET' onSubmit={handleSubmit}>
+            <form action="/login" method='GET' onSubmit={handleSubmit}>
             <fieldset>
                 <legend>Create Account</legend>
                 <div className="form-group form-email">

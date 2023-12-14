@@ -2,10 +2,10 @@ import Nav from './Nav';
 // import Footer from './Footer';
 import '../App.css'
 import { UserContext } from "../context/UserProvider";
-import { useContext, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 
 const Login = () =>{
-    // const myUlRef = useRef(null);
+    const myUlRef = useRef(null);
     // console.log("mon storage:",localStorage.getItem('formData'));
     //const stoarage = JSON.parse(localStorage.getItem('formData'));
     const [email, setEmail] = useState('');
@@ -56,7 +56,7 @@ const Login = () =>{
                     <div className='text-center sign-in'>
                         <a href="/account">Créer un compte chez nous !</a>
                     </div>
-                    <ul className="mt-3" style={{ display: 'none' }}>
+                    <ul className="mt-3"  ref={myUlRef} style={{ display: 'none' }}>
                         <li style={{ color: 'red' }}>Adresse email ou mot de passe incorrecte</li>
                     </ul>
                 </fieldset>

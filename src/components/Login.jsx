@@ -7,7 +7,9 @@ import { useContext, useRef, useState } from 'react';
 const Login = () =>{
     const myUlRef = useRef(null);
     // console.log("mon storage:",localStorage.getItem('formData'));
-    //const stoarage = JSON.parse(localStorage.getItem('formData'));
+    const stoarage = JSON.parse(localStorage.getItem('formData'));
+    console.log("stoarage:",stoarage);
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const { user, setUser } = useContext(UserContext);

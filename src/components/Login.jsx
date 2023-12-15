@@ -1,33 +1,33 @@
 // import Footer from './Footer';
 import '../assets/css/home.css'
 
-// import { UserContext } from "../context/UserProvider";
+import { UserContext } from "../context/UserProvider";
 import { useContext, useState, useRef } from 'react';
 
 const Login = () =>{
-    // const myUlRef = useRef(null);
-    // console.log("mon storage:",localStorage.getItem('formData'));
-    //const stoarage = JSON.parse(localStorage.getItem('formData'));
+    const myUlRef = useRef(null);
+    console.log("mon storage:",localStorage.getItem('formData'));
+    const stoarage = JSON.parse(localStorage.getItem('formData'));
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    // const { user, setUser } = useContext(UserContext);
+    const { user, setUser } = useContext(UserContext);
     const handleClick = (e) =>{
-        // e.preventDefault();
+        e.preventDefault();
         
-        // if((email != stoarage.email && password != stoarage.password) ||
-        // (email != stoarage.email || password != stoarage.password)){
-        //     myUlRef.current.style.display = 'block';
-        // }else{
-        //     console.log("mon storage in handleClick:",JSON.parse(localStorage.getItem('formData')));
-        //     setUser(prevUser => ({
-        //         ...prevUser,
-        //         firstname: stoarage.firstname,
-        //         lastname: stoarage.lastname,
-        //         email: stoarage.email,
-        //         password: stoarage.password,
-        //     }));
-        //     console.log("user in handleClick:",user);
-        // }
+        if((email != stoarage.email && password != stoarage.password) ||
+        (email != stoarage.email || password != stoarage.password)){
+            myUlRef.current.style.display = 'block';
+        }else{
+            console.log("mon storage in handleClick:",JSON.parse(localStorage.getItem('formData')));
+            setUser(prevUser => ({
+                ...prevUser,
+                firstname: stoarage.firstname,
+                lastname: stoarage.lastname,
+                email: stoarage.email,
+                password: stoarage.password,
+            }));
+            console.log("user in handleClick:",user);
+        }
     }
     
     return(

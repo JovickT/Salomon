@@ -1,11 +1,18 @@
-.all {
+body {
+    margin: 0;
+    padding: 0;
+    background: url('../img/Arcade.png') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden; /* Pour éviter le défilement vertical */
+}
+/* .all {
     background-image: url('../img/Arcade.png');
     background-repeat: no-repeat;
     background-size: cover; 
     background-position: center;
-    height:100%;
     color : white;
-}
+} */
 
 a {
     font-weight: 500;
@@ -17,6 +24,7 @@ a:hover {
 } 
 
 .formulaire{
+    margin-top: 5%;
     position: relative;
     padding: 100px;
     left: 32%;

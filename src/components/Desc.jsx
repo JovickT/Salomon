@@ -1,5 +1,6 @@
 import '../assets/css/Desc.css';
 import Nav from './Nav';
+import Footer from './Footer';
 
 
 const Desc = () => {
@@ -7,7 +8,7 @@ const Desc = () => {
         <>
         <Nav/>
         <div class="Desc">
-            <br /><br />
+            
             <h1 class="d-flex justify-content-center">Description des jeux vidéos.</h1>
             <br /><br />
             <div class="card" style={{width: "15rem", marginLeft:"43%"}}>
@@ -20,7 +21,7 @@ const Desc = () => {
             </div>
             <br />
         </div>
-        
+        <Footer/>
         </>
     );
 };

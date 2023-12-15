@@ -4,6 +4,7 @@ import HomePage from '../components/HomePage';
 import { UserProvider } from '../context/UserProvider';
 import Login from '../components/Login';
 import CreateAccount from '../components/CreateAccount';
+import Desc from '../components/Desc';
 
 const Rooter = () => {
   return (
@@ -14,6 +15,7 @@ const Rooter = () => {
                 {/* <Route path="/experience" element={<ExperiencePage/>} />    */}
                 <Route path="/login" element={<Login/>} />    
                 <Route path="/account" element={<CreateAccount/>} />    
+                <Route path="/jeux" element={<Desc/>} />    
             </Routes>
         </BrowserRouter>
     </UserProvider >

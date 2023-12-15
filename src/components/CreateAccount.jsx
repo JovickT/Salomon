@@ -1,7 +1,7 @@
 import { UserContext } from "../context/UserProvider";
 import Nav from "./Nav";
 // import Footer from "./Footer";
-import { useContext, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 
 const CreateAccount = () =>{
     const [firstName, setFirstName] = useState('');
@@ -10,8 +10,9 @@ const CreateAccount = () =>{
     const [password, setPassword] = useState('');
     const [verifyPassword, setVerifyPassword] = useState('');
     const { user, setUser } = useContext(UserContext);
+    const [isChecked, setIsChecked] = useState(false);
+    const myUlRef = useRef(null);
     const handleSubmit = (e) =>{
-        e.preventDefault();
   
         const formData = {
             firstname: firstName,
@@ -19,8 +20,13 @@ const CreateAccount = () =>{
             email: email,
             password: password,
         };
+
+        if(password != verifyPassword){
+            e.preventDefault();
+            myUlRef.current.style.display = 'block';
+        }
         
-        localStorage.setItem('formData', JSON.stringify(formData));
+        //localStorage.setItem('formData', JSON.stringify(formData));
         console.log("affichage storage:",JSON.parse(localStorage.getItem('formData')));
         console.log('Prénom:', firstName);
         console.log('Nom de famille:', lastName);
@@ -29,12 +35,17 @@ const CreateAccount = () =>{
         console.log('Vérification du mot de passe:', verifyPassword);
     };
 
+    const handleCheckboxChange = (e) =>{
+        setIsChecked(e.target.checked);
+        console.log("event:",isChecked);
+    }
+
     return (
 
         <>
         <Nav />
         <div className="formulaire">
-            <form action="/login" method='GET' onSubmit={handleSubmit}>
+            <form action="/login" method='POST' onSubmit={handleSubmit}>
             <fieldset>
                 <legend>Create Account</legend>
                 <div className="form-group form-email">
@@ -68,12 +79,19 @@ const CreateAccount = () =>{
                      value={verifyPassword}
                      onChange={(e) => setVerifyPassword(e.target.value)} required />
                 </div>
+                <div className="d-inline">
+                <input type="checkbox" id="Condition" name="Condition" checked={isChecked} onChange={handleCheckboxChange}/>
+                <label for="condition" className="p-2 cd-use" >En créant un compte, vous acceptez les conditions d'utilisation</label>
+                </div>
                 <div className='from-submit'>
-                    <button type="submit" className="btn btn-primary">Envoyer</button>
+                    <button type="submit" disabled={!isChecked} className="btn btn-primary">Envoyer</button>
                 </div>
                 <div className='text-center sign-in'>
                     <a href="/login">Se connecter !</a>
                 </div>
+                <ul className="mt-3" ref={myUlRef} style={{ display: 'none' }}>
+                        <li style={{ color: 'red'}}>Vérification de mot de passe incorrecte</li>
+                    </ul>
             </fieldset>
             </form>
         </div>

@@ -1,4 +1,3 @@
-import Nav from './Nav';
 // import Footer from './Footer';
 import '../assets/css/home.css'
 import { UserContext } from "../context/UserProvider";

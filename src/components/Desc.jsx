@@ -4,6 +4,13 @@ import Footer from './Footer';
 
 
 const Desc = () => {
+
+    const [desc, setDesc] = useState([]);
+
+    useEffect(() => {
+        requestHttp().then( data => setDesc(data.game));
+    }, []);
+
     return (
         <>
         <Nav/>

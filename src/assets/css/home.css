@@ -4,7 +4,7 @@ body {
     background: url('../img/Arcade.png');
     background-size: cover; 
     height: 100vh;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 a {
@@ -17,11 +17,8 @@ a:hover {
 } 
 
 .formulaire{
-    margin-top: 5%;
     position: relative;
-    padding: 100px;
     left: 32%;
-    top: 25%;
 }
 
 .form-email{
@@ -65,3 +62,23 @@ legend{
     position: relative;
     left: 40%;
 }
+
+.cd-use{
+    font-size: 12px;
+}
+
+.card-css{
+    position: relative;
+    border: 1px solid purple;
+    box-shadow: 10px 10px purple;
+    .btn-test{
+        position: absolute;
+        bottom: 1%;
+        padding-top: 2%;
+    }
+    .text-test{
+        margin-bottom: 10px;
+    }
+
+}
+

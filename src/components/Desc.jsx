@@ -1,6 +1,8 @@
 import '../assets/css/Desc.css';
 import Nav from './Nav';
 import Footer from './Footer';
+import { useEffect, useState } from 'react';
+import requestHttp from '../services/api_service';
 
 
 const Desc = () => {

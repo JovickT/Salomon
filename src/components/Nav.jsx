@@ -7,10 +7,16 @@ const Nav = () => {
     return(
         <nav className='site-nav'>
             <div className='primary-nav'> 
+<<<<<<< HEAD
                 <a href='/'> Home </a>
                 <a href='/experience'> Experience </a>
                 <a href='/login'> Login </a>
                 {/* <p> {user.firstname != ""? fullName : ""}</p> <i class="fa fa-user" aria-hidden="true"></i> */}
+=======
+                <a href='/'>home</a>
+                <a href='/experience'>experience</a>
+                <a href='/login'>login</a>
+>>>>>>> 18bfd0588900418e6bfcbf94ccdb40a2db2c230a
                
                 {/* <a href='education.html'>education</a>
                  <a href='skills.html'>skills</a>

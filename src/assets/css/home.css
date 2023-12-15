@@ -1,6 +1,7 @@
 body {
     margin: 0;
     padding: 0;
+<<<<<<< HEAD
     background: url('../img/Arcade.png') no-repeat center center fixed;
     background-size: cover;
     height: 100vh;
@@ -13,6 +14,13 @@ body {
     background-position: center;
     color : white;
 } */
+=======
+    background: url('../img/Arcade.png');
+    background-size: cover; 
+    height: 100vh;
+    overflow: hidden;
+}
+>>>>>>> 18bfd0588900418e6bfcbf94ccdb40a2db2c230a
 
 a {
     font-weight: 500;
@@ -71,4 +79,8 @@ legend{
 .from-submit{
     position: relative;
     left: 40%;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 18bfd0588900418e6bfcbf94ccdb40a2db2c230a

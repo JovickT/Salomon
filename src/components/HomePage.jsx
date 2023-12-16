@@ -5,7 +5,6 @@ import Nav from "./Nav";
 const HomePage = () => {
     return (
         <>
-            <Nav/>
             <Login />
             <Footer/>
         </>

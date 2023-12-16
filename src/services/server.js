@@ -6,7 +6,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.post('http://localhost:3000/login', (req, res) => {
+app.post('/login', (req, res) => {
     const { firstname, lastname, email, password, verifyPassword } = req.body;
     // Utilise ces données comme nécessaire
     console.log("Données du formulaire :", req.body);

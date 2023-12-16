@@ -3,6 +3,7 @@ import requestHttp from "../services/api_service.js"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import Nav from "./Nav.jsx";
+import Footer from "./Footer.jsx";
 
 const Desc = () => {
 
@@ -62,10 +63,10 @@ const Desc = () => {
             <p className="p-5">Etes vous sûr de vouloir vous inscrire ?</p>
             <div className="d-flex justify-content-center">
                 <a href="/"><button className="btn btn-primary btn-infoBull mx-3">Oui</button></a>
-                
                 <button onClick={handleNo}className="btn btn-primary btn-infoBull">Non</button>
             </div>
         </div>
+        <Footer/>
         </>
     );
 };

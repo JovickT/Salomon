@@ -1,4 +1,5 @@
 // import { UserContext } from "../context/UserProvider";
+import Footer from "./Footer";
 import Nav from "./Nav";
 // import Footer from "./Footer";
 import { useRef, useState } from 'react';
@@ -12,15 +13,15 @@ const CreateAccount = () =>{
     // const { user, setUser } = useContext(UserContext);
     const [isChecked, setIsChecked] = useState(false);
     const myUlRef = useRef(null);
-    
+
     const handleSubmit = (e) =>{
   
-        const formData = {
-            firstname: firstName,
-            lastname: lastName,
-            email: email,
-            password: password,
-        };
+        // const formData = {
+        //     firstname: firstName,
+        //     lastname: lastName,
+        //     email: email,
+        //     password: password,
+        // };
 
         if(password !== verifyPassword){
             e.preventDefault();
@@ -48,7 +49,7 @@ const CreateAccount = () =>{
         <div className="formulaire">
             <form action="/login" method='POST' onSubmit={handleSubmit}>
             <fieldset>
-                <legend>Create Account</legend>
+                <legend>Créer un compte</legend>
                 <div className="form-group form-email">
                     <label htmlFor="exampleInputText" className='form-text'>Firstame</label>
                     <input type="text" className="form-control input-email" id="exampleInputText" placeholder="Jones"
@@ -96,7 +97,7 @@ const CreateAccount = () =>{
             </fieldset>
             </form>
         </div>
-         {/* <Footer /> */}
+         <Footer />
         </>
        
     );

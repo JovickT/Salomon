@@ -1,11 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from '../components/HomePage';
-<<<<<<< HEAD
-import ExperiencePage from '../components/ExperiencePage';
 import '../assets/css/home.css'
-=======
->>>>>>> 18bfd0588900418e6bfcbf94ccdb40a2db2c230a
 import { UserProvider } from '../context/UserProvider';
 import Login from '../components/Login';
 import CreateAccount from '../components/CreateAccount';

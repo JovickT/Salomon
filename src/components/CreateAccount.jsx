@@ -2,7 +2,7 @@ import { UserContext } from "../context/UserProvider";
 import Footer from "./Footer";
 import Nav from "./Nav";
 import { useContext, useRef, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const CreateAccount = () =>{
     const [firstName, setFirstName] = useState('');
@@ -10,10 +10,10 @@ const CreateAccount = () =>{
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [verifyPassword, setVerifyPassword] = useState('');
-    const { user, setUser } = useContext(UserContext);
+    const { user} = useContext(UserContext);
     const [isChecked, setIsChecked] = useState(false);
     const myUlRef = useRef(null);
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) =>{
   
@@ -26,19 +26,20 @@ const CreateAccount = () =>{
         };
 
         try {
-            const response = await fetch('http://localhost:3002', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
+            const response = await fetch('http://localhost:3000/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
             });
             
-            if (response.ok) {
+            if (!response.ok) {
             // Si la requête a réussi, vous pouvez rediriger ici
-                history.push('/login');
+                console.log("navigation déclenché");
+                navigate('/login');
             } else {
-            // Gérer les erreurs de requête ici
+                console.log("navigation non déclenché");
             }
         } catch (error) {
             console.error('Erreur lors de la requête:', error);
@@ -49,12 +50,12 @@ const CreateAccount = () =>{
             myUlRef.current.style.display = 'block';
             return;
         }
-        
+        console.log("user:",user);
         // let storedFormData = localStorage.getItem('formData');
         // storedFormData = storedFormData ? JSON.parse(storedFormData) : []; // Vérifie si des données existent déjà dans le localStorage
         
         // const updatedFormData = [...storedFormData, formData];
-        localStorage.setItem('formData', JSON.stringify(formData));
+        //localStorage.setItem('formData', JSON.stringify(formData));
 
         setFirstName('');
         setLastName('');

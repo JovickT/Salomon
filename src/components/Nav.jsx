@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import '../assets/css/Desc.css';
+import { UserContext } from '../context/UserProvider';
 
 const Nav = () => {
     const [liste,setListe] = useState("/login");
+    const {setUser} = useContext(UserContext);
     const storaData = JSON.parse(localStorage.getItem('formData'));
    
         useEffect(() => {
@@ -13,6 +15,11 @@ const Nav = () => {
             }
         }, []);
     
+        const handleDeconnexion = (e) =>{
+            //useEffect(() => {
+                setUser(null);
+            //}, []);
+        }
     return(
         <>
          <nav className="navbar navbar-expand-lg bg-body-tertiary Navbar">
@@ -26,7 +33,7 @@ const Nav = () => {
                     <a className="nav-link" href={liste}>Liste des jeux</a>
                     </li> */}
                     <li className="nav-item">
-                    <a className="nav-link" href="/">Déconnexion</a>
+                    <a className="nav-link" href="/" onClick={handleDeconnexion}>Déconnexion</a>
                     </li>
                 </ul>
                 </div>

@@ -13,6 +13,7 @@ app.use(cors({
 app.post('/', (req, res) => {
     const { firstname, lastname, email, password, verifyPassword } = req.body;
     // Utilisez ces données comme nécessaire
+    localStorage.setItem('formData', JSON.stringify(req.body));
     console.log("Données du formulaire :", req.body);
     res.send('Données reçues');
 });

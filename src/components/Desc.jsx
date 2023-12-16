@@ -11,13 +11,13 @@ const Desc = () => {
     const [desc, setDesc] = useState([]);
     const inscription = useRef(null);
 
-    const settings = {
-        dots: false,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-    };
+    // const settings = {
+    //     dots: false,
+    //     infinite: true,
+    //     speed: 500,
+    //     slidesToShow: 3,
+    //     slidesToScroll: 1,
+    // };
 
     useEffect(() => {
         requestHttp().then( data => setDesc(data.game));

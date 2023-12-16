@@ -1,12 +1,15 @@
 // import Footer from './Footer';
 import '../assets/css/home.css'
 import { UserContext } from "../context/UserProvider";
-import { useContext, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import Footer from './Footer';
 import Nav from './Nav';
+import { useNavigate } from 'react-router-dom';
+
 
 const Login = () =>{
     const myUlRef = useRef(null);
+    const navigate = useNavigate();
     // console.log("mon storage:",localStorage.getItem('formData'));
     const stoarage = JSON.parse(localStorage.getItem('formData'));
     console.log("stoarage:",stoarage);
@@ -15,22 +18,44 @@ const Login = () =>{
     const [password, setPassword] = useState('');
     const [redirection, setRedirection] = useState("/login");
     const { user,setUser } = useContext(UserContext);
-    const handleClick = (e) =>{
-        // e.preventDefault();
+    const handleSubmit = async (e) =>{
+        e.preventDefault();
         
-        if((email != stoarage.email && password != stoarage.password) ||
-        (email != stoarage.email || password != stoarage.password)){
+        try {
+            const response = await fetch('http://localhost:3002/jeux', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(stoarage),
+            });
+            
+            if (!response.ok) {
+            // Si la requête a réussi, vous pouvez rediriger ici
+                console.log("navigation déclenché");
+                navigate('/jeux');
+            } else {
+                console.log("navigation non déclenché");
+            }
+        } catch (error) {
+            console.error('Erreur lors de la requête:', error);
+        }
+
+        if((email !== stoarage.email && password !== stoarage.password) ||
+        (email !== stoarage.email || password !== stoarage.password)){
             myUlRef.current.style.display = 'block';
         }else{
-            console.log("mon storage in handleClick:",JSON.parse(localStorage.getItem('formData')));
+            //console.log("mon storage in handleClick:",JSON.parse(localStorage.getItem('formData')));
             setRedirection("/jeux");
-            setUser(prevUser => ({
-                ...prevUser,
-                firstname: stoarage.firstname,
-                lastname: stoarage.lastname,
-                email: stoarage.email,
-                password: stoarage.password,
-            }));
+            //useEffect(() => {
+                setUser({
+                    firstname: stoarage.firstname,
+                    lastname: stoarage.lastname,
+                    email: stoarage.email,
+                    password: stoarage.password,
+                });
+            //}, []);
+            
              console.log("user in handleClick:",user);
         }
     }
@@ -40,7 +65,7 @@ const Login = () =>{
     <Nav/>
     <div className='all'>
             <div className="formulaire">
-                <form action={redirection} method='POST'>
+                <form onSubmit={handleSubmit}>
                 <fieldset>
                     <legend>Se connecter</legend>
                     <div className="form-group form-email">
@@ -57,7 +82,7 @@ const Login = () =>{
                         onChange={(e) => setPassword(e.target.value)} name='password' required />
                     </div>
                     <div className='from-submit'>
-                        <a href={redirection}><button type="submit" className="btn btn-primary" onClick={handleClick}>Valider</button></a>
+                        <a href={redirection}><button type="submit" className="btn btn-primary">Valider</button></a>
                        
                     </div>
                     <div className='text-center sign-in'>

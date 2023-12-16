@@ -20,11 +20,11 @@ const Nav = () => {
                 <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                    <a className="nav-link active" aria-current="page" href="/jeux">Home</a>
+                    <a className="nav-link active" aria-current="page" href={liste}>Home</a>
                     </li>
-                    <li className="nav-item">
+                    {/* <li className="nav-item">
                     <a className="nav-link" href={liste}>Liste des jeux</a>
-                    </li>
+                    </li> */}
                     <li className="nav-item">
                     <a className="nav-link" href="/">Déconnexion</a>
                     </li>

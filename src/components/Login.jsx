@@ -38,7 +38,7 @@ const Login = () =>{
     <Nav/>
     <div className='all'>
             <div className="formulaire">
-                <form action="/login" method='POST'>
+                <form action="/jeux" method='POST'>
                 <fieldset>
                     <legend>Se connecter</legend>
                     <div className="form-group form-email">

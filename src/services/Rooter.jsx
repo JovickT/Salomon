@@ -12,7 +12,6 @@ const Rooter = () => {
         <BrowserRouter>
             <Routes>
                 <Route exact path="/" element={<HomePage />} />
-                {/* <Route path="/experience" element={<ExperiencePage/>} />    */}
                 <Route path="/login" element={<Login/>} />    
                 <Route path="/account" element={<CreateAccount/>} />    
                 <Route path="/jeux" element={<Desc/>} />    

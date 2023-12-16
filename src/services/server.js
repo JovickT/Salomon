@@ -10,7 +10,7 @@ app.use(cors({
     origin: 'http://localhost:3000' // Remplacez par l'URL de votre client React
 }));
 
-app.post('/login', (req, res) => {
+app.post('/', (req, res) => {
     const { firstname, lastname, email, password, verifyPassword } = req.body;
     // Utilisez ces données comme nécessaire
     console.log("Données du formulaire :", req.body);

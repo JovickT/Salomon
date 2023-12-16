@@ -1,8 +1,8 @@
-// import { UserContext } from "../context/UserProvider";
+import { UserContext } from "../context/UserProvider";
 import Footer from "./Footer";
 import Nav from "./Nav";
-// import Footer from "./Footer";
-import { useRef, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 const CreateAccount = () =>{
     const [firstName, setFirstName] = useState('');
@@ -10,26 +10,61 @@ const CreateAccount = () =>{
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [verifyPassword, setVerifyPassword] = useState('');
-    // const { user, setUser } = useContext(UserContext);
+    const { user, setUser } = useContext(UserContext);
     const [isChecked, setIsChecked] = useState(false);
     const myUlRef = useRef(null);
+    const history = useHistory();
 
-    const handleSubmit = (e) =>{
+    const handleSubmit = async (e) =>{
   
-        // const formData = {
-        //     firstname: firstName,
-        //     lastname: lastName,
-        //     email: email,
-        //     password: password,
-        // };
+        e.preventDefault();
+        const formData = {
+            firstname: firstName,
+            lastname: lastName,
+            email: email,
+            password: password,
+        };
 
+        try {
+            const response = await fetch('http://localhost:3002', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+            });
+            
+            if (response.ok) {
+            // Si la requête a réussi, vous pouvez rediriger ici
+                history.push('/login');
+            } else {
+            // Gérer les erreurs de requête ici
+            }
+        } catch (error) {
+            console.error('Erreur lors de la requête:', error);
+        }
+
+       
         if(password !== verifyPassword){
-            e.preventDefault();
             myUlRef.current.style.display = 'block';
+            return;
         }
         
-        //localStorage.setItem('formData', JSON.stringify(formData));
-        console.log("affichage storage:",JSON.parse(localStorage.getItem('formData')));
+        // let storedFormData = localStorage.getItem('formData');
+        // storedFormData = storedFormData ? JSON.parse(storedFormData) : []; // Vérifie si des données existent déjà dans le localStorage
+        
+        // const updatedFormData = [...storedFormData, formData];
+        localStorage.setItem('formData', JSON.stringify(formData));
+
+        setFirstName('');
+        setLastName('');
+        setEmail('');
+        setPassword('');
+        setVerifyPassword('');
+        setIsChecked(false);
+
+        console.log("Affichage storage:", localStorage);
+
         console.log('Prénom:', firstName);
         console.log('Nom de famille:', lastName);
         console.log('Email:', email);
@@ -47,7 +82,7 @@ const CreateAccount = () =>{
         <>
         <Nav />
         <div className="formulaire">
-            <form action="/login" method='POST' onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
             <fieldset>
                 <legend>Créer un compte</legend>
                 <div className="form-group form-email">

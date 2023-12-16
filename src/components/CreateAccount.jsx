@@ -2,7 +2,7 @@ import { UserContext } from "../context/UserProvider";
 import Footer from "./Footer";
 import Nav from "./Nav";
 import { useContext, useRef, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const CreateAccount = () =>{
     const [firstName, setFirstName] = useState('');
@@ -13,7 +13,7 @@ const CreateAccount = () =>{
     const { user, setUser } = useContext(UserContext);
     const [isChecked, setIsChecked] = useState(false);
     const myUlRef = useRef(null);
-    const history = useHistory();
+    const history = useNavigate();
 
     const handleSubmit = async (e) =>{
   

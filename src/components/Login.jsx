@@ -12,31 +12,33 @@ const Login = () =>{
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [redirection, setRedirection] = useState("/login");
     const { user,setUser } = useContext(UserContext);
     const handleClick = (e) =>{
         e.preventDefault();
         
-        // if((email != stoarage.email && password != stoarage.password) ||
-        // (email != stoarage.email || password != stoarage.password)){
-        //     myUlRef.current.style.display = 'block';
-        // }else{
-        //     console.log("mon storage in handleClick:",JSON.parse(localStorage.getItem('formData')));
-        //     setUser(prevUser => ({
-        //         ...prevUser,
-        //         firstname: stoarage.firstname,
-        //         lastname: stoarage.lastname,
-        //         email: stoarage.email,
-        //         password: stoarage.password,
-        //     }));
-        //     console.log("user in handleClick:",user);
-        // }
+        if((email != stoarage.email && password != stoarage.password) ||
+        (email != stoarage.email || password != stoarage.password)){
+            myUlRef.current.style.display = 'block';
+        }else{
+            console.log("mon storage in handleClick:",JSON.parse(localStorage.getItem('formData')));
+            setRedirection("/jeux");
+            setUser(prevUser => ({
+                ...prevUser,
+                firstname: stoarage.firstname,
+                lastname: stoarage.lastname,
+                email: stoarage.email,
+                password: stoarage.password,
+            }));
+             console.log("user in handleClick:",user);
+        }
     }
     
     return(
     <>
     <div className='all'>
             <div className="formulaire">
-                <form action="/login" method='POST'>
+                <form action={redirection} method='POST'>
                 <fieldset>
                     <legend>Se connecter</legend>
                     <div className="form-group form-email">
@@ -53,7 +55,7 @@ const Login = () =>{
                         onChange={(e) => setPassword(e.target.value)} name='password' required />
                     </div>
                     <div className='from-submit'>
-                        <a href="/jeux"><button type="submit" className="btn btn-primary" onClick={handleClick}>Valider</button></a>
+                        <a href={redirection}><button type="submit" className="btn btn-primary" onClick={handleClick}>Valider</button></a>
                        
                     </div>
                     <div className='text-center sign-in'>

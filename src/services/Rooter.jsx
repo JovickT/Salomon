@@ -14,6 +14,7 @@ const Rooter = createBrowserRouter ([
     element:<PublicLayout/>,
     children:[
       {
+        // path:"/",
         path:"/login",
         element:<Login/>,    
       },      

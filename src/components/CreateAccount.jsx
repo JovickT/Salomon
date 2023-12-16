@@ -96,7 +96,6 @@ const CreateAccount = () =>{
             </fieldset>
             </form>
         </div>
-         <Footer />
         </>
        
     );

@@ -2,6 +2,8 @@
 import '../assets/css/home.css'
 import { UserContext } from "../context/UserProvider";
 import { useContext, useRef, useState } from 'react';
+import Footer from './Footer';
+import Nav from './Nav';
 
 const Login = () =>{
     const myUlRef = useRef(null);
@@ -11,7 +13,7 @@ const Login = () =>{
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const { user, setUser } = useContext(UserContext);
+    const { user } = useContext(UserContext);
     const handleClick = (e) =>{
         e.preventDefault();
         
@@ -32,25 +34,29 @@ const Login = () =>{
     }
     
     return(
-        <div className='all'>
+    <>
+    <Nav/>
+    <div className='all'>
             <div className="formulaire">
-                <form action="/login" method='GET' >
+                <form action="/login" method='POST'>
                 <fieldset>
-                    <legend>Login in</legend>
+                    <legend>Se connecter</legend>
                     <div className="form-group form-email">
                         <label htmlFor="exampleInputEmail1" className='form-text'>Email address</label>
                         <input type="email" className="form-control input-email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" 
                         value={email}
-                        onChange={(e) => setEmail(e.target.value)} required readonly />
+                        onChange={(e) => setEmail(e.target.value)} name='email' required />
+                        <small id="emailHelp" className="form-text text-muted form-text">We'll never share your email with anyone else.</small>
                     </div>
                     <div className="form-group form-password">
                         <label htmlFor="exampleInputPassword1" className='form-text'>Password</label>
                         <input type="password" className="form-control input-password" id="exampleInputPassword1" placeholder="Password" 
                         value={password}
-                        onChange={(e) => setPassword(e.target.value)} required />
+                        onChange={(e) => setPassword(e.target.value)} name='password' required />
                     </div>
                     <div className='from-submit'>
-                        <button type="submit" className="btn btn-primary" onClick={handleClick}>Valider</button>
+                        <a href="/jeux"><button type="submit" className="btn btn-primary" onClick={handleClick}>Valider</button></a>
+                       
                     </div>
                     <div className='text-center sign-in'>
                         <a href="/account">Créer un compte chez nous !</a>
@@ -61,8 +67,10 @@ const Login = () =>{
                 </fieldset>
                 </form>
             </div>
-            {/* <Footer /> */}
         </div>
+        <Footer />
+    </>
+        
     );
 };
 

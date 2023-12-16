@@ -5,7 +5,6 @@ import Rooter from './services/Rooter';
 function App(){
     return(
         <>
-            {/* <HomePage/> */}
             <Rooter />
         </>
     );

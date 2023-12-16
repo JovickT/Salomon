@@ -1,59 +1,22 @@
 {
    "data":{
-        "about":[
-            
-                {
-                    "Nom": "about-item about-item-skills",
-                    "Lien": "skills.html",
-                    "Titre": "I got mad Skills",
-                    "Legende": "What they are?"
-                },
-            
-                {
-                    "Nom":"about-item about-item-social",
-                    "Lien":"contact.html",
-                    "Titre":"I am social",
-                    "Legende":"Connect with me"
-                },
-            
-                {
-                    "Nom":"about-item about-item-live",
-                    "Lien":"contact.html",
-                    "Titre":"contact.html",
-                    "Legende":"Where to find me"
-                }
-            
-            
-        ],
-        "experiences":[
+        "game":[
             {
-                    "dateDebut":"Present - 2012 /",
-                    "moisDebut":"Jan",
-                    "dateFin":"",
-                    "moisFin":"",
-                    "NomSociete":"Google Play",
-                    "intitule":"Marketing Director",
-                    "description":"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam quam assumenda nemo itaque omnis. A natus, cum id vel repellendus, ut rerum, accusamus quisquam numquam ex incidunt doloremque doloribus excepturi.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero dolorem repellat deleniti sit dicta repellendus perferendis voluptatem cumque. Odit ab, maiores culpa mollitia soluta ratione consequuntur sint beatae omnis nemo?"
-                },
-                {
-                    "dateDebut":"2011 / ",
-                    "moisDebut":"Jun",
-                    "dateFin":" - 2008 /",
-                    "moisFin":"Apr",
-                    "NomSociete":"Struck Interactive LLC",
-                    "intitule":"Junior Graphic Designer",
-                    "description":"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam quam assumenda nemo itaque omnis. A natus, cum id vel repellendus, ut rerum, accusamus quisquam numquam ex incidunt doloremque doloribus excepturi."
-                },
-                {
-                    "dateDebut":"2008 / ",
-                    "moisDebut":"Apr",
-                    "dateFin":" - 2004 / ",
-                    "moisFin":"Dec",
-                    "NomSociete":"Apple Computers Inc.",
-                    "intitule":"Creative Director",
-                    "description":"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam quam assumenda nemo itaque omnis. A natus, cum id vel repellendus, ut rerum, accusamus quisquam numquam ex incidunt doloremque doloribus excepturi."
-                
-            
+                "name": "FC 24",
+                "image": "https://cdn1.epicgames.com/offer/4750c68b2bfa4f43933b81cfd5cc510c/EGS_EASPORTSFC24UltimateEdition_EACanada_Editions_S2_1200x1600-dc25e6d71666959d43074b7ed2868ad7",
+                "description": "EA Sports FC 24 est un jeu vidéo de football développé par Electronic Arts et édité par EA Sports, sorti le 29 septembre 2023 sur Microsoft Windows, PlayStation 4, PlayStation 5, Xbox One, Xbox Series et Nintendo Switch."
+            },
+        
+            {
+                "name": "Fortnite",
+                "image": "https://cdn.gamekult.com/images/news/30/3050838609/avec-fortnite-epic-games-a-genere-plus-de-5-milliards-de-dollars-en-2020-c9e1a589.jpg",
+                "description": "Fortnite est un jeu en ligne développé par Epic Games sous la forme de différents modes de jeu qui partagent le même gameplay général et le même moteur de jeu."
+            },
+        
+            {
+                "name": "Grand Theft Auto V",
+                "image": "https://cdn1.epicgames.com/0584d2013f0149a791e7b9bad0eec102/offer/GTAV_EGS_Artwork_1200x1600_Portrait%20Store%20Banner-1200x1600-382243057711adf80322ed2aeea42191.jpg",
+                "description": "Grand Theft Auto V est un jeu vidéo d'action-aventure, développé par Rockstar North et édité par Rockstar Games. Il est sorti en 2013 sur PlayStation 3 et Xbox 360, en 2014 sur PlayStation 4 et Xbox One, en 2015 sur PC puis en 2022 sur PlayStation 5 et Xbox Series. "
             }
         ]
    }

@@ -3,7 +3,6 @@ import '../assets/css/home.css'
 import { UserContext } from "../context/UserProvider";
 import { useContext, useRef, useState } from 'react';
 import Footer from './Footer';
-import Nav from './Nav';
 
 const Login = () =>{
     const myUlRef = useRef(null);
@@ -17,25 +16,24 @@ const Login = () =>{
     const handleClick = (e) =>{
         e.preventDefault();
         
-        if((email != stoarage.email && password != stoarage.password) ||
-        (email != stoarage.email || password != stoarage.password)){
-            myUlRef.current.style.display = 'block';
-        }else{
-            console.log("mon storage in handleClick:",JSON.parse(localStorage.getItem('formData')));
-            setUser(prevUser => ({
-                ...prevUser,
-                firstname: stoarage.firstname,
-                lastname: stoarage.lastname,
-                email: stoarage.email,
-                password: stoarage.password,
-            }));
-            console.log("user in handleClick:",user);
-        }
+        // if((email != stoarage.email && password != stoarage.password) ||
+        // (email != stoarage.email || password != stoarage.password)){
+        //     myUlRef.current.style.display = 'block';
+        // }else{
+        //     console.log("mon storage in handleClick:",JSON.parse(localStorage.getItem('formData')));
+        //     setUser(prevUser => ({
+        //         ...prevUser,
+        //         firstname: stoarage.firstname,
+        //         lastname: stoarage.lastname,
+        //         email: stoarage.email,
+        //         password: stoarage.password,
+        //     }));
+        //     console.log("user in handleClick:",user);
+        // }
     }
     
     return(
     <>
-    <Nav/>
     <div className='all'>
             <div className="formulaire">
                 <form action="/login" method='POST'>

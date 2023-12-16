@@ -1,14 +1,9 @@
 import './assets/css/App.css'
-import HomePage from './components/HomePage'
+import { RouterProvider } from 'react-router-dom';
 import Rooter from './services/Rooter';
 
-function App(){
-    return(
-        <>
-            <Rooter />
-        </>
-    );
-}
+const App = () => <RouterProvider router={Rooter} />
+
 
 export default App;
 

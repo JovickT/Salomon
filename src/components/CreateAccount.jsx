@@ -45,7 +45,6 @@ const CreateAccount = () =>{
     return (
 
         <>
-        <Nav />
         <div className="formulaire">
             <form action="/login" method='POST' onSubmit={handleSubmit}>
             <fieldset>

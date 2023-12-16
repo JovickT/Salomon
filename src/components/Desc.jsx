@@ -37,7 +37,6 @@ const Desc = () => {
 
     return (
         <>
-        <Nav />
         <div>
             <br /><br />
             <h1 className="d-flex justify-content-center" style={{color: "white", fontFamily: "cursive"}}>Description des jeux vidéos.</h1>

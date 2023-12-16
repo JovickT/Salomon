@@ -5,13 +5,13 @@ const Nav = () => {
     const [liste,setListe] = useState("/login");
     const storaData = JSON.parse(localStorage.getItem('formData'));
    
-        useEffect(() => {
-            if(storaData.length >= 1){
-                setListe("\jeux");
-            }else{
-                console.log("faire apparître une pop up qui demande de se connecter pour accéder à la liste");
-            }
-        }, []);
+        // useEffect(() => {
+        //     if(storaData.length >= 1){
+        //         setListe("\jeux");
+        //     }else{
+        //         console.log("faire apparître une pop up qui demande de se connecter pour accéder à la liste");
+        //     }
+        // }, []);
     
     return(
         <>

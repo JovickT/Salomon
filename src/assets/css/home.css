@@ -22,11 +22,11 @@ a:hover {
 }
 
 .form-email{
-    margin-bottom: 15px
+    margin-bottom: 5px
 }
 
 .form-password{
-    margin-bottom: 20px
+    margin-bottom: 5px
 }
 
 .form-text{
@@ -59,11 +59,13 @@ legend{
 }
 
 .from-submit{
-    position: relative;
-    left: 40%;
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
 }
 
 .cd-use{
+    position: absolute;
     font-size: 12px;
 }
 

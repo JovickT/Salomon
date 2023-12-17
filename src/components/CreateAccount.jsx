@@ -11,14 +11,9 @@ const CreateAccount = () =>{
     const [password, setPassword] = useState('');
     const [verifyPassword, setVerifyPassword] = useState('');
     const {user, setUser} = useContext(UserContext);
-    // const [userList, setUserList] = useContext(UserContext);
     const [isChecked, setIsChecked] = useState(false);
     const myUlRef = useRef(null);
     const navigate = useNavigate();
-    //const [formData, setFormData] = useState([]);
-    // useEffect(() => {
-    //     console.log("Affichage userList:", user);
-    // }, [user]);
     const handleSubmit = async (e) =>{
   
         e.preventDefault();
@@ -46,7 +41,11 @@ const CreateAccount = () =>{
             if (!response.ok) {
             // Si la requête a réussi, vous pouvez rediriger ici
                 console.log("navigation déclenché");
-                navigate('/login');
+                if(password !== verifyPassword){
+                    myUlRef.current.style.display = 'block';
+                }else{
+                    navigate('/login');
+                }
             } else {
                 console.log("navigation non déclenché");
             }
@@ -55,10 +54,7 @@ const CreateAccount = () =>{
         }
 
        
-        if(password !== verifyPassword){
-            myUlRef.current.style.display = 'block';
-            return;
-        }
+       
        
         setFirstName('');
         setLastName('');

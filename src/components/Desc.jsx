@@ -39,6 +39,7 @@ const Desc = () => {
     const handleYes = (event) =>{
         event.preventDefault();
         console.log("handleYes event:",event);
+        console.log("handleYes user:",user);
         values.map(key =>{
             if(key.email == user.email){
                 values.inscrit = play;

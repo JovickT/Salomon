@@ -15,7 +15,7 @@ const Desc = () => {
     const { user } = useContext(UserContext);
     const storage = Object.keys(localStorage)
     const values = storage.map(key => JSON.parse(localStorage.getItem(key)));
-    console.log("localStorage Desc:", JSON.parse(localStorage.getItem('formData')));
+
     console.log("user in Desc:",user);
 
     useEffect(() => {
@@ -42,7 +42,7 @@ const Desc = () => {
         console.log("handleYes user:",user);
         values.map(key =>{
             if(key.email == user.email){
-                values.inscrit = play;
+                key.inscrit = play;
             }
 
         })

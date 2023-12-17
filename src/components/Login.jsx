@@ -31,9 +31,9 @@ const Login = () =>{
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(storage),
+                body: JSON.stringify(values),
             });
-
+            console.log("response:",response);
             if (!response.ok) {
     
                 console.log("navigation déclenché");

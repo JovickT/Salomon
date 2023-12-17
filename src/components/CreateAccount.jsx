@@ -1,7 +1,7 @@
 import { UserContext } from "../context/UserProvider";
 import Footer from "./Footer";
 import Nav from "./Nav";
-import { useContext, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const CreateAccount = () =>{
@@ -10,20 +10,29 @@ const CreateAccount = () =>{
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [verifyPassword, setVerifyPassword] = useState('');
-    const { user} = useContext(UserContext);
+    const {user, setUser} = useContext(UserContext);
+    // const [userList, setUserList] = useContext(UserContext);
     const [isChecked, setIsChecked] = useState(false);
     const myUlRef = useRef(null);
     const navigate = useNavigate();
-
+    //const [formData, setFormData] = useState([]);
+    // useEffect(() => {
+    //     console.log("Affichage userList:", user);
+    // }, [user]);
     const handleSubmit = async (e) =>{
   
         e.preventDefault();
-        const formData = {
+        const newFormData = {
             firstname: firstName,
             lastname: lastName,
             email: email,
             password: password,
         };
+        localStorage.setItem(newFormData.firstname,JSON.stringify(newFormData));
+        setUser([...user, newFormData]);
+    
+    
+       
 
         try {
             const response = await fetch('http://localhost:3000/login', {
@@ -31,7 +40,7 @@ const CreateAccount = () =>{
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(formData),
+                body: JSON.stringify(newFormData),
             });
             
             if (!response.ok) {
@@ -50,13 +59,7 @@ const CreateAccount = () =>{
             myUlRef.current.style.display = 'block';
             return;
         }
-        console.log("user:",user);
-        // let storedFormData = localStorage.getItem('formData');
-        // storedFormData = storedFormData ? JSON.parse(storedFormData) : []; // Vérifie si des données existent déjà dans le localStorage
-        
-        // const updatedFormData = [...storedFormData, formData];
-        //localStorage.setItem('formData', JSON.stringify(formData));
-
+       
         setFirstName('');
         setLastName('');
         setEmail('');

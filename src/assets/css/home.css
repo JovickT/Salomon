@@ -101,6 +101,16 @@ legend{
     padding: 0 35px;
 }
 
+.btn-clear{
+    height: 80%;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.btn-clear:hover{
+    background-color: white !important;
+}
+
 .all{
     position: relative;
     top: 200px;

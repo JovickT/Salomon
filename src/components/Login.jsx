@@ -10,30 +10,49 @@ import { useNavigate } from 'react-router-dom';
 const Login = () =>{
     const myUlRef = useRef(null);
     const navigate = useNavigate();
-    // console.log("mon storage:",localStorage.getItem('formData'));
-    const stoarage = JSON.parse(localStorage.getItem('formData'));
-    console.log("stoarage:",stoarage);
+    
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [redirection, setRedirection] = useState("/login");
     const { user,setUser } = useContext(UserContext);
+    
+    const storage = Object.keys(localStorage)
+    const values = storage.map(key => JSON.parse(localStorage.getItem(key)));
+
+    console.log("values:",values);
+
     const handleSubmit = async (e) =>{
         e.preventDefault();
         
         try {
-            const response = await fetch('http://localhost:3002/jeux', {
+            const response = await fetch('http://localhost:3000/jeux', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(stoarage),
+                body: JSON.stringify(storage),
             });
-            
+
             if (!response.ok) {
-            // Si la requête a réussi, vous pouvez rediriger ici
+    
                 console.log("navigation déclenché");
-                navigate('/jeux');
+                values.map( key =>{
+                    if(email == key.email && password == key.password){
+                    
+                        setUser({
+                            firstname: key.firstname,
+                            lastname: key.lastname,
+                            email: key.email,
+                            password: key.password,
+                        });
+                        navigate("/jeux");
+                        console.log("user in handleClick:",user);
+                    }else{
+                        myUlRef.current.style.display = 'block';
+                    }
+                })
+                
             } else {
                 console.log("navigation non déclenché");
             }
@@ -41,23 +60,7 @@ const Login = () =>{
             console.error('Erreur lors de la requête:', error);
         }
 
-        if((email !== stoarage.email && password !== stoarage.password) ||
-        (email !== stoarage.email || password !== stoarage.password)){
-            myUlRef.current.style.display = 'block';
-        }else{
-            //console.log("mon storage in handleClick:",JSON.parse(localStorage.getItem('formData')));
-            setRedirection("/jeux");
-            //useEffect(() => {
-                setUser({
-                    firstname: stoarage.firstname,
-                    lastname: stoarage.lastname,
-                    email: stoarage.email,
-                    password: stoarage.password,
-                });
-            //}, []);
-            
-             console.log("user in handleClick:",user);
-        }
+       
     }
     
     return(

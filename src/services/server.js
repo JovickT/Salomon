@@ -7,15 +7,29 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors({
-    origin: 'http://localhost:3000' // Remplacez par l'URL de votre client React
+    origin: 'http://localhost:3000/',
+    methods: ['GET', 'POST'], // Définissez les méthodes que vous autorisez
+    credentials: true,
 }));
 
-app.post('/login', (req, res) => {
+app.post('/', (req, res) => {
+    const { email, password } = req.body;
+    // Vérification des identifiants ici...
+    if (email  && password ) {
+        res.status(200).json({ message: 'Connexion réussie' });
+    } else {
+        res.status(401).json({ message: 'Identifiants invalides' });
+    }
+});
+
+app.post('/account', (req, res) => {
     const { firstname, lastname, email, password, verifyPassword } = req.body;
-    // Utilisez ces données comme nécessaire
-   
-    console.log("Données du formulaire :", req.body);
-    res.send('Données reçues');
+    // Vérification des identifiants ici...
+    if (firstname && lastname, email && password && verifyPassword) {
+        res.status(200).json({ message: 'Connexion réussie' });
+    } else {
+        res.status(401).json({ message: 'Identifiants invalides' });
+    }
 });
 
 const PORT = 3002;

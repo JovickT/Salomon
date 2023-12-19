@@ -1,7 +1,7 @@
 import { UserContext } from "../context/UserProvider";
 import Footer from "./Footer";
 import Nav from "./Nav";
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const CreateAccount = () =>{
@@ -22,6 +22,7 @@ const CreateAccount = () =>{
             lastname: lastName,
             email: email,
             password: password,
+            inscrit: []
         };
         localStorage.setItem(newFormData.firstname,JSON.stringify(newFormData));
         setUser([...user, newFormData]);
@@ -30,7 +31,7 @@ const CreateAccount = () =>{
        
 
         try {
-            const response = await fetch('http://localhost:3000/login', {
+            const response = await fetch('http://localhost:3002/account', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -39,12 +40,10 @@ const CreateAccount = () =>{
             });
             
             if (!response.ok) {
-            // Si la requête a réussi, vous pouvez rediriger ici
-                console.log("navigation déclenché");
                 if(password !== verifyPassword){
                     myUlRef.current.style.display = 'block';
                 }else{
-                    navigate('/login');
+                    navigate('/');
                 }
             } else {
                 console.log("navigation non déclenché");
@@ -52,9 +51,6 @@ const CreateAccount = () =>{
         } catch (error) {
             console.error('Erreur lors de la requête:', error);
         }
-
-       
-       
        
         setFirstName('');
         setLastName('');
@@ -62,19 +58,10 @@ const CreateAccount = () =>{
         setPassword('');
         setVerifyPassword('');
         setIsChecked(false);
-
-        console.log("Affichage storage:", localStorage);
-
-        console.log('Prénom:', firstName);
-        console.log('Nom de famille:', lastName);
-        console.log('Email:', email);
-        console.log('Mot de passe:', password);
-        console.log('Vérification du mot de passe:', verifyPassword);
     };
 
     const handleCheckboxChange = (e) =>{
         setIsChecked(e.target.checked);
-        console.log("event:",isChecked);
     }
 
     return (

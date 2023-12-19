@@ -15,9 +15,9 @@ const Desc = () => {
     const { user } = useContext(UserContext);
     const storage = Object.keys(localStorage)
     const values = storage.map(key => JSON.parse(localStorage.getItem(key)));
-
-    console.log("user in Desc:",user);
-
+    const connect = JSON.parse(localStorage.getItem('loggedInUser'));
+    const listes = JSON.parse(localStorage.getItem('listGames'));
+    console.log("user:",user);
     useEffect(() => {
         requestHttp().then( data => setDesc(data.game));
     }, []);
@@ -26,7 +26,6 @@ const Desc = () => {
         event.preventDefault();
         const x = event.clientX;
         setPlay([...play, event.target.id]);
-        console.log("event:",event);
         inscription.current.style.left = x + 'px';
         inscription.current.style.display = 'block';
     }
@@ -38,11 +37,10 @@ const Desc = () => {
 
     const handleYes = (event) =>{
         event.preventDefault();
-        console.log("handleYes event:",event);
-        console.log("handleYes user:",user);
         values.map(key =>{
-            if(key.email == user.email){
-                key.inscrit = play;
+            if(connect && (key.email == connect.email)){
+                localStorage.setItem('listGames', JSON.stringify(play));
+                key.inscrit = listes;
             }
 
         })
@@ -63,7 +61,7 @@ const Desc = () => {
                 {/* <div className="card-list"> */}
                     {desc.map( (descriptif, index) => <div key={index} className="card col-3 card-css" style={{ width: "15rem", marginLeft: "3%"}}>
                         <img  src={descriptif.image} alt="fc 24"  className="card-img-top" style={{width : "210px"}} />
-                        <div className="card-body">
+                        <div className="card-body container">
                             <h5 className="card-title">{descriptif.name}</h5>
                             <div className="text-test">
                                 <p className="card-text" style={{fontSize: "0.8rem"}}>{descriptif.description}</p>

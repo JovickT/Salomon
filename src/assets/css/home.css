@@ -85,7 +85,6 @@ legend{
 }
 
 .text-test{
-    position: absolute;
     margin-bottom: 15px;
 }
 
@@ -157,4 +156,3 @@ footer{
     bottom: 20px;
     height: 50px;
 }
-

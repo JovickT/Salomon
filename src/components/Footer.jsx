@@ -4,14 +4,15 @@ import { UserContext } from "../context/UserProvider";
 const Footer = () => {
     const {user} =useContext(UserContext);
     const btnClear = useRef(null);
-    if(user){
-        if(user.email == "jovicktchakala@yahoo.com"){
-            console.log("btnClear:",btnClear);
-            if(btnClear.current){
-                btnClear.current.style.display = 'block';
-            }
+    const connect = JSON.parse(localStorage.getItem('loggedInUser'));
+
+    
+    if(connect && connect.email == "jovicktchakala@yahoo.com"){
+        if(btnClear.current){
+            btnClear.current.style.display = 'block';
         }
     }
+
     const clear = () =>{
         localStorage.clear();
     }

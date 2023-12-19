@@ -1,7 +1,6 @@
-// import Footer from './Footer';
 import '../assets/css/home.css'
 import { UserContext } from "../context/UserProvider";
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 import Footer from './Footer';
 import Nav from './Nav';
 import { useNavigate } from 'react-router-dom';
@@ -11,43 +10,36 @@ const Login = () =>{
     const myUlRef = useRef(null);
     const navigate = useNavigate();
     
-
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [redirection, setRedirection] = useState("/login");
-    const { user,setUser } = useContext(UserContext);
+    const { setUser } = useContext(UserContext);
     
     const storage = Object.keys(localStorage)
     const values = storage.map(key => JSON.parse(localStorage.getItem(key)));
-
-    console.log("values:",values);
-
     const handleSubmit = async (e) =>{
         e.preventDefault();
         
         try {
-            const response = await fetch('http://localhost:3000/jeux', {
+            const response = await fetch('http://localhost:3002/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(values),
+                body: JSON.stringify({email, password}),
             });
-            console.log("response:",response);
-            if (!response.ok) {
-    
-                console.log("navigation déclenché");
+           
+            if (response.ok) {
+                const authenticatedUser = values.find(key => email === key.email && password === key.password);
                 values.map( key =>{
-                    if(email == key.email && password == key.password){
-                    
+                    if(authenticatedUser){
                         setUser({
                             firstname: key.firstname,
                             lastname: key.lastname,
                             email: key.email,
                             password: key.password,
                         });
+                        localStorage.setItem('loggedInUser', JSON.stringify(authenticatedUser));
                         navigate("/jeux");
-                        console.log("user in handleClick:",user);
                     }else{
                         myUlRef.current.style.display = 'block';
                     }
@@ -65,7 +57,7 @@ const Login = () =>{
     
     return(
     <>
-    <Nav/>
+    <Nav />
     <div className='all'>
             <div className="formulaire">
                 <form onSubmit={handleSubmit}>
@@ -85,7 +77,7 @@ const Login = () =>{
                         onChange={(e) => setPassword(e.target.value)} name='password' required />
                     </div>
                     <div className='from-submit'>
-                        <a href={redirection}><button type="submit" className="btn btn-primary">Valider</button></a>
+                        <a href=""><button type="submit" className="btn btn-primary">Valider</button></a>
                        
                     </div>
                     <div className='text-center sign-in'>

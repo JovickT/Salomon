@@ -6,7 +6,7 @@ import Footer from "./Footer.jsx";
 const TabIscription = () =>{
     const [desc, setDesc] = useState([]);
     const storage = Object.keys(localStorage)
-    const values = storage.map(key => key != 'loggedInUser'?JSON.parse(localStorage.getItem(key)):"");
+    const values = storage.map(key => JSON.parse(localStorage.getItem(key)));
     console.log("storage listes inscrits:",values);
     useEffect(() => {
         requestHttp().then( data => setDesc(data.game));

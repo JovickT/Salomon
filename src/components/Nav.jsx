@@ -11,13 +11,22 @@ const Nav = () => {
     const storage = Object.keys(localStorage)
     const values = storage.map(key => JSON.parse(localStorage.getItem(key)));
     const connect = JSON.parse(localStorage.getItem('loggedInUser'));
+
     console.log("storage nav:", values);
- 
+
+    //const sameConnect = values.find((key) => key.firstname == connect.firstname);
+    //console.log("le seul et l'unique",JSON.parse(localStorage.getItem(sameConnect.firstname)));
+
     if(connect && connect.email == "jovicktchakala@yahoo.com"){
         if(inscrit.current != null)
             inscrit.current.style.display = "block";
     }
     const handleDeconnexion = (e) =>{
+        const sameConnect = values.find((key) => key.firstname == connect.firstname);
+        const storedData = JSON.parse(localStorage.getItem(sameConnect.firstname));
+        storedData.inscrit = connect.inscrit;
+        localStorage.setItem(sameConnect.firstname, JSON.stringify(storedData));
+        console.log("recherche:",values.find((key) => key.firstname == connect.firstname));
         localStorage.removeItem('loggedInUser');
         setUser(null);
     }

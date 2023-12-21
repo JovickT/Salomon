@@ -31,14 +31,16 @@ const Login = () =>{
             if (response.ok) {
                 const authenticatedUser = values.find(key => email === key.email && password === key.password);
                 values.map( key =>{
+                    console.log("key",key);
                     if(authenticatedUser){
-                        setUser({
-                            firstname: key.firstname,
-                            lastname: key.lastname,
-                            email: key.email,
-                            password: key.password,
-                        });
+                       
                         localStorage.setItem('loggedInUser', JSON.stringify(authenticatedUser));
+                        setUser({
+                            firstname: JSON.parse(localStorage.getItem('loggedInUser')).firstname,
+                            lastname: JSON.parse(localStorage.getItem('loggedInUser')).lastname,
+                            email: email,
+                            password: password,
+                        });
                         navigate("/jeux");
                     }else{
                         myUlRef.current.style.display = 'block';

@@ -6,22 +6,35 @@ import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons
 import Nav from "./Nav.jsx";
 import Footer from "./Footer.jsx";
 import { UserContext } from "../context/UserProvider.jsx";
+import { useNavigate } from "react-router-dom";
 
 const Desc = () => {
 
     const [desc, setDesc] = useState([]);
     const [play, setPlay] = useState([]);
+    const [NoDIsabled, setNodisabled] = useState(false);
     const inscription = useRef(null);
     const { user } = useContext(UserContext);
     const storage = Object.keys(localStorage)
     const values = storage.map(key => JSON.parse(localStorage.getItem(key)));
-    const connect = JSON.parse(localStorage.getItem('loggedInUser'));
-    const listes = JSON.parse(localStorage.getItem('listGames'));
+    const btnInscription = useRef(null);
+    const navigate = useNavigate();
+
     console.log("user:",user);
     useEffect(() => {
         requestHttp().then( data => setDesc(data.game));
     }, []);
-
+    const myDisabled = JSON.parse(localStorage.getItem('loggedInUser'));
+    if(myDisabled && myDisabled.inscrit.length>0){
+        myDisabled.inscrit.map(jeu =>{
+            //console.log("jeu:",jeu,"\nbtnInscription:",btnInscription);
+            if(jeu){
+                //btnInscription.current.disabled = true;
+            }
+        })
+    }else{
+        console.log("myDisabled:",myDisabled);
+    }
     const handlClick = (event) =>{
         event.preventDefault();
         const x = event.clientX;
@@ -33,20 +46,18 @@ const Desc = () => {
     const handleNo = (event) =>{
         setPlay(play.slice(0, -1));
         inscription.current.style.display = 'none';
+      
     }
 
     const handleYes = (event) =>{
         event.preventDefault();
-        values.map(key =>{
-            if(connect && (key.email == connect.email)){
-                localStorage.setItem('listGames', JSON.stringify(play));
-                key.inscrit = listes;
-            }
-
-        })
+        
+        const storedData =  JSON.parse(localStorage.getItem('loggedInUser'));
+        storedData.inscrit = play;
+        localStorage.setItem('loggedInUser', JSON.stringify(storedData));
         console.log("localStorage storage maj:", values);
         inscription.current.style.display = 'none';
-
+       
     }
 
     return (
@@ -66,7 +77,7 @@ const Desc = () => {
                             <div className="text-test">
                                 <p className="card-text" style={{fontSize: "0.8rem"}}>{descriptif.description}</p>
                             </div>
-                            <a href="/" id={descriptif.name} className="btn btn-primary btn-test" onClick={handlClick}>S'inscire au tournoi</a>
+                            <button id={descriptif.name} key={index} ref={btnInscription}  disabled={NoDIsabled} className="btn btn-primary btn-test" onClick={handlClick}>S'inscire au tournoi</button>
                         </div>
                     </div>)}
                 <FontAwesomeIcon icon={faChevronRight} className="carousel-arrow right fl-right" />
